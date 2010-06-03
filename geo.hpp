@@ -23,7 +23,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  *
- * $Id: geo.hpp,v 1.1 2010/06/02 10:33:09 gsotirov Exp $
+ * $Id: geo.hpp,v 1.2 2010/06/03 12:13:06 gsotirov Exp $
  */
 
 #include <cmath>
@@ -32,24 +32,25 @@ namespace Geo {
 
 /* Two dimensional space point */
 class Point2D {
-protected:
+private:
   double x;
   double y;
 
 public:
   Point2D(double px, double py) : x(px), y(py) {}
+
+  virtual double getX() { return x; }
+  virtual double getY() { return y; }
 };
 
 /* Three dimensional space point */
 class Point3D: public Point2D {
-protected:
+private:
   double z;
 
 public:
   Point3D(double px, double py, double pz) : Point2D(px, py), z(pz) {}
 
-  double getX() { return Point2D::x; }
-  double getY() { return Point2D::y; }
   double getZ() { return z; }
 };
 
@@ -62,7 +63,7 @@ public:
 
 /* Two dimensional shape */
 class Shape2D: public Shape {
-protected:
+private:
   Point2D ref_point;
 
 public:
@@ -72,7 +73,7 @@ public:
 
 /* Three dimensional shpe */
 class Shape3D: public Shape {
-protected:
+private:
   Point3D ref_point;
 
 public:
@@ -97,6 +98,22 @@ public:
 
   double area(void) { return M_PI * radius * radius; }
   double perimeter(void) { return 2 * M_PI * radius; }
+};
+
+/* A rectangle */
+class Rectangle: public Shape2D {
+private:
+  double width;
+  double height;
+public:
+  Rectangle(Point2D p, double w, double h) : Shape2D(p), width(w), height(h) {}
+  Rectangle(double px, double py, double w, double h) : Shape2D(px, py), width(w), height(h) {}
+
+  double getWidth(void) { return width; }
+  double getHeight(void) { return height; }
+
+  double area(void) { return width * height; }
+  double perimeter(void) { return 2 * width + 2 * height; }
 };
 
 /* A square */
