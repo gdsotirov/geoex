@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/gdsotirov/geoex.svg?branch=master)](https://travis-ci.com/gdsotirov/geoex)
+
 # GeoEx
 An example class hierarchy of geometry figures in 2D and 3D including *circle*, *rectangle*, *square*, *cube* and *sphere*.
 
