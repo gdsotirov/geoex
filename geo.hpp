@@ -59,6 +59,7 @@ class Shape {
 public:
   virtual double area(void) = 0;
   virtual double perimeter(void) = 0;
+  virtual ~Shape() {}
 };
 
 /* Two dimensional shape */
