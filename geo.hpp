@@ -6,7 +6,7 @@
  * hierarchies used in Object Oriented Programming.
  */
 
-/* Copyright (C) 2010 Georgi D. Sotirov <gdsotirov@dir.bg>
+/* Copyright (C) 2010-2019 Georgi D. Sotirov <gdsotirov@dir.bg>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -41,6 +41,8 @@ public:
 
   virtual double getX() { return x; }
   virtual double getY() { return y; }
+
+  virtual ~Point2D() {}
 };
 
 /* Three dimensional space point */
@@ -68,7 +70,7 @@ private:
   Point2D ref_point;
 
 public:
-  Shape2D(Point2D p) : ref_point(p) {}
+  explicit Shape2D(Point2D * p) : ref_point(*p) {}
   Shape2D(double px, double py) : ref_point(px, py) {}
 };
 
@@ -78,7 +80,7 @@ private:
   Point3D ref_point;
 
 public:
-  Shape3D(Point3D p) : ref_point(p) {}
+  explicit Shape3D(Point3D * p) : ref_point(* p) {}
 
   /* remove - not always useful for 3D */
   double perimeter(void) { return 0; };
@@ -92,7 +94,7 @@ private:
   double radius;
 
 public:
-  Circle(Point2D p, double r) : Shape2D(p), radius(r) {}
+  Circle(Point2D * p, double r) : Shape2D(p), radius(r) {}
   Circle(double px, double py, double r) : Shape2D(px, py), radius(r) {}
 
   double getRadius(void) { return radius; }
@@ -107,7 +109,7 @@ private:
   double width;
   double height;
 public:
-  Rectangle(Point2D p, double w, double h) : Shape2D(p), width(w), height(h) {}
+  Rectangle(Point2D * p, double w, double h) : Shape2D(p), width(w), height(h) {}
   Rectangle(double px, double py, double w, double h) : Shape2D(px, py), width(w), height(h) {}
 
   double getWidth(void) { return width; }
@@ -123,7 +125,7 @@ private:
   double side;
 
 public:
-  Square(Point2D p, double s) : Shape2D(p), side(s) {}
+  Square(Point2D * p, double s) : Shape2D(p), side(s) {}
   Square(double x, double y, double s) : Shape2D(x, y), side(s) {}
 
   double getSide(void) { return side; }
@@ -137,7 +139,7 @@ class Sphere: public Shape3D {
 private:
   Circle cr;
 public:
-  Sphere(Point3D cntr, double r) : Shape3D(cntr), cr(cntr.getX(), cntr.getY(), r) {}
+  Sphere(Point3D * cntr, double r) : Shape3D(cntr), cr(cntr->getX(), cntr->getY(), r) {}
 
   double getRadius(void) { return cr.getRadius(); }
 
@@ -151,7 +153,7 @@ class Cube: public Shape3D {
 private:
   Square sq;
 public:
-  Cube(Point3D p, double s) : Shape3D(p), sq(p.getX(), p.getY(), s) {}
+  Cube(Point3D * p, double s) : Shape3D(p), sq(p->getX(), p->getY(), s) {}
 
   double getEdge(void) { return sq.getSide(); }
 
