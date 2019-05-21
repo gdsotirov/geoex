@@ -2,7 +2,7 @@
  * @file Test module for the class hierarchy from Geo namespace
  */
 
-/* Copyright (C) 2010 Georgi D. Sotirov <gdsotirov@dir.bg>
+/* Copyright (C) 2010-2019 Georgi D. Sotirov <gdsotirov@dir.bg>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -33,10 +33,10 @@ using std::endl;
 int main(int argc, char * argv[]) {
   Geo::Point2D p2d0(0, 0);
   Geo::Point3D p3d0(0, 0, 0);
-  Geo::Circle * pCircle = new Geo::Circle(p2d0, 3.5);
-  Geo::Square * pSquare = new Geo::Square(p2d0, 3);
-  Geo::Sphere * pSphere = new Geo::Sphere(p3d0, 3.5);
-  Geo::Cube   * pCube   = new Geo::Cube(p3d0, 3);
+  Geo::Circle * pCircle = new Geo::Circle(&p2d0, 3.5);
+  Geo::Square * pSquare = new Geo::Square(&p2d0, 3);
+  Geo::Sphere * pSphere = new Geo::Sphere(&p3d0, 3.5);
+  Geo::Cube   * pCube   = new Geo::Cube(&p3d0, 3);
 
   cout << "A circle with radius " << pCircle->getRadius() << endl;
   cout << " Circle's area is " << pCircle->area() << endl;
