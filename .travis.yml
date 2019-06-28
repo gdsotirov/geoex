@@ -3,7 +3,14 @@ compiler:
   - gcc
 os:
   - linux
+addons:
+  apt:
+    packages:
+    - doxygen
 branches:
   only:
   - master
 script: make
+after_success:
+  - doxygen Doxyfile
+
