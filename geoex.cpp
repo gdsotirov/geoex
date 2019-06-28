@@ -1,7 +1,3 @@
-/**
- * @file Test module for the class hierarchy from Geo namespace
- */
-
 /* Copyright (C) 2010-2019 Georgi D. Sotirov <gdsotirov@dir.bg>
  *
  * This program is free software; you can redistribute it and/or
@@ -22,6 +18,11 @@
  * $Id: geoex.cpp,v 1.1 2010/06/02 10:33:09 gsotirov Exp $
  */
 
+/**
+ * @file geoex.cpp
+ * Test module for the class hierarchy from Geo namespace
+ */
+
 #include <iostream>
 
 #include "geo.hpp"
@@ -29,7 +30,9 @@
 using std::cout;
 using std::endl;
 
-/* Test program */
+/**
+ * Main test program
+ */
 int main(int argc, char * argv[]) {
   Geo::Point2D p2d0(0, 0);
   Geo::Point3D p3d0(0, 0, 0);

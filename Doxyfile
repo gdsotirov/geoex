@@ -1,0 +1,13 @@
+# Doxyfile 1.8.9.1
+
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "GeoEx"
+PROJECT_BRIEF          = "An example class hierarchy of geometry figures in 2D and 3D including circle, rectangle, square, cube and sphere."
+USE_MDFILE_AS_MAINPAGE = README.md
+OUTPUT_DIRECTORY       = doc
+CLASS_DIAGRAMS         = YES
+GENERATE_HTML          = YES
+USE_MATHJAX            = YES
+MATHJAX_FORMAT         = NativeMML
+MATHJAX_RELPATH        = http://cdn.mathjax.org/mathjax/latest
+
