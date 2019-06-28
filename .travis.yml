@@ -7,6 +7,7 @@ addons:
   apt:
     packages:
     - doxygen
+    - graphviz
 branches:
   only:
   - master
