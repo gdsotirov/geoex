@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: deps
-      run: apt install doxygen graphviz
+      run: sudo -E apt-get install --assume-yes doxygen graphviz
     - name: make
       run: make
     - name: docs
