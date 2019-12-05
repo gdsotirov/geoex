@@ -1,0 +1,17 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: deps
+      run: apt install doxygen graphviz
+    - name: make
+      run: make
+    - name: docs
+      run: doxygen Doxyfile
+
