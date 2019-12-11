@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/gdsotirov/geoex.svg?branch=master)](https://travis-ci.com/gdsotirov/geoex)
-![](https://github.com/gdsotirov/geoex/workflows/C/C++%20CI/badge.svg)
+[![Action Status](https://github.com/gdsotirov/geoex/workflows/C/C++%20CI/badge.svg)](https://github.com/gdsotirov/geoex/actions?query=workflow%3A%22C%2FC%2B%2B+CI%22)
 
 # GeoEx
 An example class hierarchy of geometry figures in 2D and 3D including *circle*, *rectangle*, *square*, *cube* and *sphere*.
