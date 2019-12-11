@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: deps
+    - name: Install dependencies
       run: sudo -E apt-get install --assume-yes doxygen graphviz
-    - name: make
+    - uses: actions/checkout@v1
+    - name: Build
       run: make
-    - name: docs
+    - name: Generate documentation
       run: doxygen Doxyfile
 
